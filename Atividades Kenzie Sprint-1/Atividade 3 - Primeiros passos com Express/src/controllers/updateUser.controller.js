@@ -1,4 +1,4 @@
-import { updateUserService } from "../services/updateUser";
+import { updateUserService } from "../services/updateUser.service";
 
 export const updateUserController = (req, res) => {
   const { id } = req.params;

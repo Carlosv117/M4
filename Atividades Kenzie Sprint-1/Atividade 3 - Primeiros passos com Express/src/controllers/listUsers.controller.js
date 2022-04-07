@@ -1,4 +1,4 @@
-import { listUsersServices } from "../services/listUsers";
+import { listUsersServices } from "../services/listUsers.service";
 
 export const listUsersController = (req, res) => {
   const users = listUsersServices();
