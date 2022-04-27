@@ -1,0 +1,53 @@
+-- Alteração de coluna 01
+ALTER TABLE
+ usuarios
+ADD
+ COLUMN email VARCHAR(50);
+
+-- Alteração de coluna 02
+ALTER TABLE
+ usuarios
+ALTER COLUMN
+ idade
+SET
+ NOT NULL;
+
+-- Alteração de coluna 03
+ALTER TABLE
+ usuarios RENAME email TO apelido;
+
+-- Remoção de coluna
+ALTER TABLE
+ usuarios DROP COLUMN IF EXISTS apelido;
+
+-- Inserção de coluna
+ALTER TABLE
+ usuarios
+ADD
+ COLUMN email VARCHAR(50);
+
+-- Atualização de dados
+UPDATE
+ usuarios
+SET
+ email = 'adm@kenzie.com';
+
+-- Atualização de dados com filtragem
+UPDATE
+ usuarios
+SET
+ email = 'patrick@kenzie.com'
+WHERE
+ id = 1 RETURNING *;
+
+-- Deleção de linhas na tabela
+DELETE FROM
+ usuarios
+WHERE
+ id = 3 RETURNING *;
+
+-- Deleção de linhas na tabela 02
+DELETE FROM
+ usuarios
+WHERE
+ email = 'adm@kenzie.com' RETURNING *;

@@ -1,0 +1,127 @@
+-- Criação de tabela
+CREATE TABLE IF NOT EXISTS usuarios(
+ id BIGSERIAL CONSTRAINT pk_usuarios PRIMARY KEY,
+ nome VARCHAR(100) NOT NULL,
+ idade INTEGER
+);
+
+-- População de dados na tabela
+INSERT INTO
+ usuarios(nome, idade)
+VALUES
+ ('Patrick Nekel', 23),
+ ('Eduardo', 26),
+ ('Ivan', 26),
+ ('Darnley', 31);
+
+-- Criação de tabela paralela
+CREATE TABLE IF NOT EXISTS enderecos (
+ id BIGSERIAL PRIMARY KEY,
+ rua VARCHAR(150) NOT NULL
+);
+
+-- Remoção de tabelas
+DROP TABLE usuarios;
+
+-- Criação de tabela com constraints
+CREATE TABLE IF NOT EXISTS usuarios (
+ id BIGSERIAL PRIMARY KEY,
+ nome VARCHAR(50) NOT NULL,
+ idade INTEGER,
+ CHECK (idade > 0),
+ endereco_id INTEGER,
+ CONSTRAINT fk_end_usu FOREIGN KEY(endereco_id) REFERENCES enderecos(id)
+);
+
+--Obtenção de dados
+SELECT
+ *
+FROM
+ usuarios;
+
+-- Obtenção de dados filtrados
+SELECT
+ nome
+FROM
+ usuarios;
+
+-- Obtenção de dados filtrados 02
+SELECT
+ nome,
+ idade
+FROM
+ usuarios;
+
+-- Obtenção de dados filtrados 03
+SELECT
+ *
+FROM
+ usuarios
+WHERE
+ idade = 26;
+
+-- Obtenção de dados filtrados 05
+SELECT
+ *
+FROM
+ usuarios
+WHERE
+ idade > 26;
+
+-- Obtenção de dados filtrados 06
+SELECT
+ *
+FROM
+ usuarios
+WHERE
+ idade >= 26;
+
+-- Obtenção de dados filtrados 07
+SELECT
+ *
+FROM
+ usuarios
+WHERE
+ idade < 26;
+
+-- Obtenção de dados filtrados 08
+SELECT
+ *
+FROM
+ usuarios
+WHERE
+ idade <= 26;
+
+-- Obtenção de dados com encadeamento 01
+SELECT
+ *
+FROM
+ usuarios
+WHERE
+ nome LIKE 'E%';
+
+-- Obtenção de dados com encadeamento 02
+SELECT
+ *
+from
+ usuarios
+WHERE
+ nome LIKE 'I%'
+ AND idade >= 25;
+
+-- Obtenção de dados com encadeamento 03
+SELECT
+ *
+FROM
+ usuarios
+WHERE
+ nome LIKE 'E%'
+ OR nome LIKE 'I%';
+
+-- Obtenção de dados com encadeamento 04
+SELECT
+ *
+FROM
+ usuarios
+WHERE
+ nome NOT LIKE 'E%';
