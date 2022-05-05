@@ -1,0 +1,8 @@
+ INICIAR UM PROJETO TYPESCRIPT
+ yarn init -y
+ yarn add --dev ts-node-dev typescript @types/express
+ yarn add dotenv express pg typeorm
+ yarn tsc --init
+ 
+ FAZ O BUILD:
+ yarn tsc 
