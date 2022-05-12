@@ -15,7 +15,7 @@ services:
     ports: 
       - 5432:5432
     environment:
-      - POSTGRES_USER=carlosv
-      - POSTGRES_PASSWORD=1234
+      - POSTGRES_USER=limac
+      - POSTGRES_PASSWORD=1923
       - POSTGRES_DB=defalutdb
     
